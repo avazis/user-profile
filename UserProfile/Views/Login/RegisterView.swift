@@ -44,8 +44,6 @@ struct RegisterView: View {
                         TextFieldView(label: "Email", text: $viewModel.email, errorText: $viewModel.fieldErrors.email)
                             .keyboardType(.emailAddress)
                         HStack{
-//                            Text("Birthday")
-                            
                             VStack(alignment: .trailing){
                                 DatePicker("Birthday", selection: $viewModel.selectedDate, displayedComponents: .date)
                                     .datePickerStyle(CompactDatePickerStyle())
@@ -82,9 +80,9 @@ struct RegisterView: View {
                 .toast(isPresenting: $viewModel.showToast){
                     AlertToast(displayMode: .banner(.slide), type: .regular, title: viewModel.toastMessage)
                 }
-                                .onTapGesture {
-                                            self.endEditing()
-                                        }
+                .onTapGesture {
+                    self.endEditing()
+                }
             }
             if viewModel.showLoading {
                 LoadingV()

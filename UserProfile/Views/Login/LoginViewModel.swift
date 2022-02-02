@@ -28,15 +28,20 @@ class LoginViewModel: ObservableObject {
         }
         if let details = apiError.getError.1 {
             for item in details {
-                print("\(item.loc[1]) \(item.msg)")
-                switch item.loc[1] {
-                case "phone":
-                    self.fieldErrors.phone = item.msg
-                case "password":
-                    self.fieldErrors.password = item.msg
-                default:
-                    print("-----")
+                if item.loc.count > 1 {
+                    print("\(item.loc[1]) \(item.msg)")
+                    switch item.loc[1] {
+                    case "phone":
+                        self.fieldErrors.phone = item.msg
+                    case "password":
+                        self.fieldErrors.password = item.msg
+                    default:
+                        print("-----")
+                    }
+                } else if !item.loc.isEmpty {
+                    print(item)
                 }
+                
             }
         }
     }

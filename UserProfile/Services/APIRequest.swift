@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 protocol APIRequest {}
 
@@ -114,5 +115,6 @@ extension APIRequest {
             }
         }
     }
+    
 }
 

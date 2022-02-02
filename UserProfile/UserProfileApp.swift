@@ -14,10 +14,10 @@ struct UserProfileApp: App {
     @ObservedObject var authManager = AuthManager()
     
     init() {
-        authManager.pageState = .loginView
-//        authManager.fetchUser(){ err in
-//            print(err)
-//        }
+        authManager.pageState = .loading
+        authManager.fetchUser(){ err in
+            print(err)
+        }
     }
     
     

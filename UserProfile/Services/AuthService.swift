@@ -29,7 +29,7 @@ class AuthService: APIRequest {
     func auth(api: AppAPI,
               onSuccess successCallback: @escaping (_ response: UserResponse) -> Void,
               onFailure failureCallback: @escaping (_ errorMessage: APIError) -> Void) {
-        request(api: api) { response in
+        request(api: api) { response in 
             do {
                 let decoded: UserResponse? = try JSONDecoder().decode(UserResponse.self, from: response)
                 successCallback(decoded!)

@@ -8,8 +8,4 @@
 import Foundation
 import Combine
 
-class MainViewModel: ObservableObject {
-    
-    
-    
-}
+class MainViewModel: ObservableObject {}
